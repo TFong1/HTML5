@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Nice Text</title>
+    <script type="text/javascript">
+        function DrawText() {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.font = "30px Arial";
+            ctx.strokeText("Hello World", 10, 50);
+        }
+
+        function ClearText() {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.clearRect(0, 0, c.width, c.height);
+        }
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="200" height="200"></canvas>
+    <button onclick="DrawText()">Hello World!</button>
+    <button onclick="ClearText()">Clear</button>
+</body>
+</html>

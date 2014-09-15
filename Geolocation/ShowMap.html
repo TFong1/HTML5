@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Get Geo Location</title>
+    <script type="text/javascript">
+        function GetLocation() {
+            var x = document.getElementById("demo");
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(ShowPosition, ShowError);
+            }
+            else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function ShowPosition(position) {
+            /*
+            var x = document.getElementById("demo");
+
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br />Longitude: " + position.coords.longitude;
+             */
+
+            var latlon = position.coords.latitude + "," + position.coords.longitude;
+            var img_url = "http://maps.googleapis.com/maps/api/staticmap?center=" +
+                latlon + "&zoom=14&size=400x300&sensor=false";
+
+            document.getElementById("mapholder").innerHTML = "<img src='" + img_url + "' />";
+        }
+
+        function ShowError(error) {
+            var x = document.getElementById("demo");
+
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    x.innerHTML = "User denied the request for Geolocation.";
+                    break;
+
+                case error.POSITION_UNAVAILABLE:
+                    x.innerHTML = "Location information is unavailable.";
+                    break;
+
+                case error.TIMEOUT:
+                    x.innerHTML = "The request to get user location timed out.";
+                    break;
+
+                default:
+                    x.innerHTML = "An unknown error occurred.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <p id="demo">Click the button to get your coordinates:</p>
+    <button onclick="GetLocation()">Try It</button>
+    <div id="mapholder"></div>
+</body>
+</html>

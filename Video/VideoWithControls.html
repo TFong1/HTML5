@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Play Video With Controls</title>
+    <script type="text/javascript">
+        function PlayPause() {
+            var myVideo = document.getElementById("video1");
+
+            if (myVideo.paused)
+                myVideo.play();
+            else
+                myVideo.pause();
+        }
+
+        function MakeBig() {
+            var myVideo = document.getElementById("video1");
+
+            myVideo.width = 560;
+        }
+
+        function MakeSmall() {
+            var myVideo = document.getElementById("video1");
+
+            myVideo.width = 320;
+        }
+
+        function MakeNormal() {
+            var myVideo = document.getElementById("video1");
+
+            myVideo.width = 420;
+        }
+    </script>
+</head>
+<body>
+    <div style="text-align:center">
+        <button onclick="PlayPause()">Play/Pause</button>
+        <button onclick="MakeBig()">Big</button>
+        <button onclick="MakeSmall()">Small</button>
+        <button onclick="MakeNormal()">Normal</button>
+        <br />
+        <video id="video1" width="420">
+            <source src="../Movies/mov_bbb.mp4" type="video/mp4" />
+            <source src="../Movies/mov_bbb.ogg" type="video/ogg" />
+            Your browser does not support HTML5 video.
+        </video>
+
+        <p>Video courtesy of <a href="http://www.bigbuckbunny.org/" target="_blank">Big Buck Bunny</a>.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Draw an Arc</title>
+    <script>
+        function DrawArc() {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.beginPath();
+            ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+            ctx.stroke();
+        }
+
+        function ClearArc() {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.clearRect(0, 0, c.width, c.height);
+        }
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="200" height="150"></canvas>
+    <button onclick="DrawArc()">Draw an Arc</button>
+    <button onclick="ClearArc()">Clear</button>
+</body>
+</html>
